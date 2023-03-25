@@ -82,10 +82,10 @@ const menu = [
   },
 ];
 
-let MenuSet = new Set(["All"]) //Navigation bar için kategorileri çekecek "set"
+let MenuSet = new Set(["All"]) 
 
-let MenuDOM = document.querySelector('.btn-container') //"Navigation bar"ı ekliceğimiz yeri atama
-//"Navigation bar" buttonları için style özellikleri
+let MenuDOM = document.querySelector('.btn-container') 
+
 let btnStyle = `
 display: inline-block;
 font-weight: 400;
@@ -103,7 +103,7 @@ color: #212529
 cursor: pointer;
 `
 
-menu.forEach(function (element){  //"menu" objesinden kategorileri "set"e çekme
+menu.forEach(function (element){  
   MenuSet.add(element.category)
 })
 
