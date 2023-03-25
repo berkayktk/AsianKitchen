@@ -197,7 +197,7 @@ let foodDOM = document.querySelector('.section-center')         /
     document.getElementById("China").style.backgroundColor = "transparent"
     document.getElementById("China").style.color = "black"
   })
-  //(Bu işlemi "css" üstünden daha kolay yapılıyor ama sadece "js" kullanmak istedim)
+ 
 
   document.addEventListener('click', (selected) =>  
   {
