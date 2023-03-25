@@ -107,66 +107,66 @@ menu.forEach(function (element){  //"menu" objesinden kategorileri "set"e çekme
   MenuSet.add(element.category)
 })
 
-MenuSet.forEach(function (element){           //"Set"teki bilgilerle button oluşturma
-  let btnDOM = document.createElement('span') //button için "span" oluşturma
-  btnDOM.classList.add("btn-item")            //"class" ekleme
-  btnDOM.style = btnStyle                     //yukardaki "style" özelliklerini ekleme
-  btnDOM.setAttribute('id',`${element}`)      //"id" atama
-  btnDOM.innerHTML =`${element}`              //buttonun içindeki yazı
-  MenuDOM.appendChild(btnDOM)                 //oluşturduğumuz buttonu ekleme
+MenuSet.forEach(function (element){           
+  let btnDOM = document.createElement('span') 
+  btnDOM.classList.add("btn-item")            
+  btnDOM.style = btnStyle                     
+  btnDOM.setAttribute('id',`${element}`)      
+  btnDOM.innerHTML =`${element}`              
+  MenuDOM.appendChild(btnDOM)                 
 })
 
 
-let foodDOM = document.querySelector('.section-center')         //Yemek listesini ekliyeceğimiz yeri atama
-  menu.forEach(AddList)                                         //Yemek listesini ekleyecek fonksiyon
+let foodDOM = document.querySelector('.section-center')         /
+  menu.forEach(AddList)                                         
   function AddList(element){
-    let divDOM = document.createElement('div')                  //burdan sonra iç içe yapılar ekliyoruz (div yapısı)
-    divDOM.classList.add("menu-items", "col-lg-6", "col-sm-12") //"col-lg-6", "col-sm-12" pencere boyutuna göre width belirliyor
-    divDOM.setAttribute('name', element.category)               //sonradan kolay ulaşabilmek için "name" atama
-    divDOM.setAttribute('id', element.id)                       //"id" atama
-      let imgDOM = document.createElement('img')                //"img" oluşturma
-      imgDOM.src = element.img                                  //resim linki
-      imgDOM.alt = element.title                                //resim açıklaması
-      imgDOM.classList.add("photo")                             //resim "class"ı
-      divDOM.appendChild(imgDOM)                                //"img"i "div"e ekleme (div>img)
+    let divDOM = document.createElement('div')                  
+    divDOM.classList.add("menu-items", "col-lg-6", "col-sm-12") 
+    divDOM.setAttribute('name', element.category)               
+    divDOM.setAttribute('id', element.id)                       
+      let imgDOM = document.createElement('img')                
+      imgDOM.src = element.img                                  
+      imgDOM.alt = element.title                                
+      imgDOM.classList.add("photo")                             
+      divDOM.appendChild(imgDOM)                                
     
-      let infoDOM = document.createElement('div')               //Yemek bilgileri için ayrı "div"
+      let infoDOM = document.createElement('div')               
       infoDOM.classList.add("menu-info")
-        let dtitleDOM = document.createElement('div')           //Yemek ismi ve parası için "div"
+        let dtitleDOM = document.createElement('div')           
         dtitleDOM.classList.add("menu-title")
-          let titleDOM = document.createElement('h4')           //Yemek ismi için yapı ve bilgileri
+          let titleDOM = document.createElement('h4')           
           titleDOM.innerHTML = element.title
-          dtitleDOM.appendChild(titleDOM)                       //Ekleme işlemi
+          dtitleDOM.appendChild(titleDOM)                       
     
-          let priceDOM = document.createElement('h4')           //Yemek parası için yapı ve bilgileri
+          let priceDOM = document.createElement('h4')           
           priceDOM.classList.add("price")
           priceDOM.innerHTML = element.price
-          dtitleDOM.appendChild(priceDOM)                       //Ekleme işlemi
+          dtitleDOM.appendChild(priceDOM)                       
     
-        infoDOM.appendChild(dtitleDOM)                          //Ekleme işlemi
+        infoDOM.appendChild(dtitleDOM)                          
     
-        let textDOM = document.createElement('div')             //Yemek açıklaması için yapı ve bilgileri
+        let textDOM = document.createElement('div')             
         textDOM.classList.add("menu-text")
         textDOM.innerHTML = element.desc
-        infoDOM.appendChild(textDOM)                            //Ekleme işlemi
+        infoDOM.appendChild(textDOM)                            
     
-      divDOM.appendChild(infoDOM)                               //Ekleme işlemi
+      divDOM.appendChild(infoDOM)                               
     
-    foodDOM.appendChild(divDOM)                                 //Ekleme işlemi
+    foodDOM.appendChild(divDOM)                                 
     
   }
   
-  let newmenu = [...menu]   //Seçilen kategoride değişecek bilgiler için yeni "object" oluşturuyoruz
-  let beforeSelected = ""   //Önceden seçilmiş kategorideki bilgileri silmek için değişken (önceki kategorinin ismini tutacak)
+  let newmenu = [...menu]   
+  let beforeSelected = ""   
 
-  //Burdaki kullanılan dinleyiciler ve "style"ler buttondaki efect için (Bunları her button için ayrı yapmak gerekiyor)
-  document.getElementById("All").addEventListener("mouseenter", () =>{  //Mouse üstündekyen olacaklar
-    document.getElementById("All").style.backgroundColor = "black"      //Arkaplan rengi
-    document.getElementById("All").style.color = "white"                //Yazı rengi
+  //Burdaki kullanılan dinleyiciler ve "style"ler buttondaki efect için 
+  document.getElementById("All").addEventListener("mouseenter", () =>{  
+    document.getElementById("All").style.backgroundColor = "black"      
+    document.getElementById("All").style.color = "white"                
   })
-  document.getElementById("All").addEventListener("mouseleave", () =>{  //Mause üstünden ayrıldığında olacaklar
-    document.getElementById("All").style.backgroundColor = "transparent"//Arkaplan rengi
-    document.getElementById("All").style.color = "black"                //Yazı rengi
+  document.getElementById("All").addEventListener("mouseleave", () =>{  
+    document.getElementById("All").style.backgroundColor = "transparent"
+    document.getElementById("All").style.color = "black"                
   })
   //Aşağıdaklerderde diğer kategoriler için
   document.getElementById("Korea").addEventListener("mouseenter", () =>{
@@ -199,40 +199,40 @@ let foodDOM = document.querySelector('.section-center')         //Yemek listesin
   })
   //(Bu işlemi "css" üstünden daha kolay yapılıyor ama sadece "js" kullanmak istedim)
 
-  document.addEventListener('click', (selected) =>  //Tıklandığında olacaklar için dinleyici ve fonksiyon
+  document.addEventListener('click', (selected) =>  
   {
-    if(selected.target.matches('span'))             //Sadece buttonlarda devreye girmesi için
+    if(selected.target.matches('span'))             
     {
-      if(beforeSelected)                            //Önceden kategori seçilmişse button bilgilerini silmek
+      if(beforeSelected)                            
       {
-        document.getElementById(beforeSelected).style.boxShadow = "" //Bu butonun arkasında oluşan gölge
+        document.getElementById(beforeSelected).style.boxShadow = "" 
       }
-      document.getElementById(selected.target.innerHTML).style.boxShadow = "0px 0px 0px 4px #898d91"  //button gölgesini oluşturma
+      document.getElementById(selected.target.innerHTML).style.boxShadow = "0px 0px 0px 4px #898d91"  
       document.getElementById(selected.target.innerHTML).style.border = "1px solid black"
       
-      beforeSelected = selected.target.innerHTML    //Tıklanan kategori ismini sonradan ulaşmak için değişkene atama
-      if(beforeSelected)                            //Önceden kategori seçilmişse bilgileri silme
+      beforeSelected = selected.target.innerHTML    
+      if(beforeSelected)                            
       {
-        newmenu.forEach(function (item){                 //önceki listeyi silme
-          let id = document.getElementById(`${item.id}`) //id ataması
-          id.remove()                                    //silme işlemi
+        newmenu.forEach(function (item){                 
+          let id = document.getElementById(`${item.id}`) 
+          id.remove()                                    
         })
       }
-      if(selected.target.innerHTML == 'All')             //'All' kategorisi için
+      if(selected.target.innerHTML == 'All')             
       {
-        newmenu = [...menu]                              //Tüm yemek listesini yeni "object" e atama
-        newmenu.forEach(AddList)                         //Ekleme fonksiyonunu çağırma
+        newmenu = [...menu]                              
+        newmenu.forEach(AddList)                         
       }
       else{
-        newmenu = menu.filter(function(element){               //'All' dışındaki kategoriler için Yemek listesini filteleme
-          return element.category == selected.target.innerHTML //Seçilen kategoriye eşitse yeni "object"e atama
+        newmenu = menu.filter(function(element){         
+          return element.category == selected.target.innerHTML 
         })
-        newmenu.forEach(AddList)                               //Ekleme fonksiyonunu çağırma
+        newmenu.forEach(AddList)                               
       }
     }
     else
     {
-      MenuSet.forEach(function (element){                      //button dışındaki yerlere de tıklandığında gölgeyi kaldırmak için
+      MenuSet.forEach(function (element){                      
         document.getElementById(element).style.boxShadow = ""
       })
       
